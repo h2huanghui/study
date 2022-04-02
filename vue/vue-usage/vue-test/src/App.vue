@@ -8,8 +8,8 @@
     <ClassDemo /> -->
     <!-- <ConditionDemo /> -->
     <!-- <ListDemo /> -->
-    <!-- <EventDemo /> -->
-    <FormDemo />
+    <EventDemo />
+    <!-- <FormDemo /> -->
   </div>
 </template>
 
@@ -20,8 +20,8 @@
 // import ClassDemo from "./components/BaseUse/ClassDemo";
 // import ConditionDemo from "./components/BaseUse/ConditionDemo";
 // import ListDemo from "./components/BaseUse/ListDemo";
-// import EventDemo from "./components/BaseUse/EventDemo";
-import FormDemo from "./components/BaseUse/FormDemo";
+import EventDemo from "./components/BaseUse/EventDemo";
+// import FormDemo from "./components/BaseUse/FormDemo";
 
 export default {
   name: "App",
@@ -32,8 +32,8 @@ export default {
     // ClassDemo
     // ConditionDemo
     // ListDemo
-    // EventDemo
-    FormDemo
+    EventDemo
+    // FormDemo
   }
 };
 </script>

@@ -20,7 +20,9 @@ export default {
   methods: {
     //1. 不需要传入额外的自定义参数的情况
     clickHandler1(event) {
-      console.log("event", event, event.__proto__.constructor); //1.原生event对象
+      console.log("event", event);
+
+      console.log("event __proto__ ", event.__proto__.constructor); //1.原生event对象
       console.log(event.target);
       console.log(event.currentTarget); //2.事件被挂载到当前元素
       this.num++;
