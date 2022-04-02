@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import JSXBaseDemo from './JSXBaseDemo';
 // import EventDemo from './EventDemo';
-import PropsDemo from './PropsDemo'
+// import PropsDemo from './PropsDemo'
+import StateDemo from './StateDemo';
 
 class BaseUseDemo extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class BaseUseDemo extends Component {
       <div>
         {/* <JSXBaseDemo /> */}
         {/* <EventDemo /> */}
-        <PropsDemo />
+        {/* <PropsDemo /> */}
+        <StateDemo />
       </div>
     );
   }
