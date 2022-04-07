@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import UnControlledDemo from './UnControlledDemo';
 import HOCDemo from './HOCDemo';
+import RenderPropsDemo from './RenderPropsDemo';
 
 class AdvancedUseDemo extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class AdvancedUseDemo extends Component {
     return (
       <div>
         {/* <UnControlledDemo /> */}
-        <HOCDemo />
+        {/* <HOCDemo a='123' /> */}
+        <RenderPropsDemo />
       </div>
     );
   }

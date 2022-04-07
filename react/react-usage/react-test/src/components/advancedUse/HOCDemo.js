@@ -16,6 +16,7 @@ const withMouse = (Component) => {
     render() {
       return (
         <div style={{ height: '500px' }} onMouseMove={this.handleMouseMove}>
+          {/* 透传props */}
           <Component {...this.props} mouse={this.state} />
         </div>
       );
@@ -25,12 +26,14 @@ const withMouse = (Component) => {
 };
 
 const App = (props) => {
+  const { a } = props;
   const { x, y } = props.mouse; //接收mouse属性
   return (
     <div>
       <h1>
         The mouse position is ({x},{y})
       </h1>
+      <span>{a}</span>
     </div>
   );
 };
