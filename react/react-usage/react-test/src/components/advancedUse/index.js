@@ -12,7 +12,7 @@ class AdvancedUseDemo extends Component {
       <div>
         {/* <UnControlledDemo /> */}
         {/* <HOCDemo a='123' /> */}
-        <RenderPropsDemo />
+        <RenderPropsDemo a='200' />
       </div>
     );
   }

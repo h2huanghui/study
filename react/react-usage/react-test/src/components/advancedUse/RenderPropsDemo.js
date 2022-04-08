@@ -30,8 +30,9 @@ Mouse.propTypes = {
   render: PropTypes.func.isRequired, //必须接收一个render函数
 };
 
-const App = () => (
+const App = (props) => (
   <div style={{ height: '500px' }}>
+    <p>{props.a}</p>
     <Mouse
       render={({ x, y }) => (
         <h1>
