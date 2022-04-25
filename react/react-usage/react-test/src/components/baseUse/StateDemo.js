@@ -21,7 +21,7 @@ class StateDemo extends Component {
     // this.setState({
     //   count: this.state.count + 1, //SCU
     // },()=>{
-    //     //对应 vue $nextTick
+    //     //对应 vue $nextTick -DOM
     //     console.log('count by callback',this.state.count)
     // });
     // console.log('count', this.state.count) //异步 拿不到最新值
@@ -72,10 +72,14 @@ class StateDemo extends Component {
   //     console.log("document body count ", this.state.count);
   //   };
 
-  //   componentDidMount() {
-  //     //自定义DOM事件,setState是同步的
-  //     document.body.addEventListener("click",this.bodyClickHandler);
-  //   }
+  // componentDidMount() {
+  //   //自定义DOM事件,setState是同步的
+  //   //开始： 处于batchUpdate
+  //   //isBatchingUpdates = true
+  //   document.body.addEventListener('click', this.bodyClickHandler);
+  //   // 结束
+  //   //isBatchingUpdates = false
+  // }
 
   //   componentWillUnmount() {
   //     document.body.removeEventListener("click",this.bodyClickHandler);
