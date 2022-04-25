@@ -12,9 +12,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "defaults",
+    "ie > 10",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ],
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.5",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",

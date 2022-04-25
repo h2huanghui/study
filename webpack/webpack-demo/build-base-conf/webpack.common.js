@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.less$/,
         //增加less-loader,注意顺序
-        use: ['style-loader', 'css-loader', 'less-loader','postcss-loader'],
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
     ],
   },
