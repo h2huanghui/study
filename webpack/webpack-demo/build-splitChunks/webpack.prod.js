@@ -82,7 +82,7 @@ module.exports = merge(webpackCommonConf, {
           name: 'vendor', // chunk名称
           priority: 1, //权限更高，优先抽离，重要！！！
           test: /node_modules/,
-          minSize: 0, //大小限制
+          minSize: 0, //大小限制 太小的文化可以不用打包，这边只是为了看打包结果写成0。实际接口可以定义3KB
           minChunks: 1, //最少复用过几次
         },
         common: {
