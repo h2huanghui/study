@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devBuild": "webpack --config build-multi-entry/webpack.dev.js",
-    "dev": "webpack serve --config build-multi-entry/webpack.dev.js",
-    "build": "webpack --config build-multi-entry/webpack.prod.js"
+    "devBuild": "webpack --config build-mini-extract-css/webpack.dev.js",
+    "dev": "webpack serve --config build-mini-extract-css/webpack.dev.js",
+    "build": "webpack --config build-mini-extract-css/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +32,7 @@
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss-loader": "^6.2.1",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.3.1",
