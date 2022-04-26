@@ -16,6 +16,8 @@ module.exports = merge(webpackCommonConf, {
     path: distPath,
   },
   module: {
+    //本身就已经打包好了，不需要再次打包
+    noParse: [/react\.min\.js$/],
     rules: [
       // 图片 - 考虑base64 编码的情况
       {
