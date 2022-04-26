@@ -22,3 +22,12 @@ function insertImgElem(imgFile) {
 
 import imgFile1 from './img/1.jpg';
 insertImgElem(imgFile1);
+
+
+//引入动态数据 - 懒加载
+setTimeout(() => {  
+  //定义trunk
+  import('./dynamic-data.js').then(res=>{
+    console.log(res.default.message)
+  })
+},1500)

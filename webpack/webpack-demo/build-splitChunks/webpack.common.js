@@ -11,8 +11,9 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
+        use: ['babel-loader?cacheDirectory'],//开启缓存
         include: srcPath,
+        //排除范围
         exclude: /node_modules/,
       },
       //css处理 dev和prod区分
