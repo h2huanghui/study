@@ -4,6 +4,12 @@ import './style/style2.less';
 
 import { sum } from './math';
 
+import moment from 'moment'
+import 'moment/locale/zh-cn' // 手动引入中文语言包
+moment.locale('zh-cn') // 设置语言为中文
+console.log('local',moment.locale())
+console.log('data',moment().format('ll'))
+
 //引入第三方模块
 import _ from 'lodash';
 console.log(_.each);
