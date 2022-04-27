@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "devBuild": "webpack --config build-optimization/webpack.dev.js",
     "dev": "webpack serve --config build-optimization/webpack.dev.js",
-    "build": "webpack --config build-optimization/webpack.prod.js"
+    "build": "webpack --config build-optimization/webpack.prod.js",
+    "dll": "webpack --config build-optimization/webpack.dll.js"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +48,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "moment": "^2.29.3"
+    "moment": "^2.29.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   }
 }

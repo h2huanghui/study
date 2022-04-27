@@ -20,7 +20,7 @@ module.exports = {
     // }),
     //多入口 - 生成index.html
     new HtmlWebpackPlugin({
-      template: path.join(srcPath, 'index.html'),
+      template: path.join(srcPath, 'index2.html'),
       filename: 'index.html',
       //chunks 表示该页面要引用哪些 chunk
       chunks: ['index', 'vendor', 'common'], //只引用index.js (不写chunks,默认两个entry都引入)

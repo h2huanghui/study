@@ -4,16 +4,18 @@ const webpackCommonConf = require('./webpack.common.js');
 const { merge } = require('webpack-merge');
 const { srcPath, distPath } = require('./paths');
 const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
+//第一，引入 DllReferencePlugin
+const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 
 module.exports = merge(webpackCommonConf, {
   mode: 'development',
   entry: {
-    // index: path.join(srcPath, 'index.js'),
-    index: [
-      'webpack-dev-server/client?http://localhost:8081/',
-      'webpack/hot/dev-server',
-      path.join(srcPath, 'index.js'),
-    ],
+    index: path.join(srcPath, 'index2.js'),
+    // index: [
+    //   'webpack-dev-server/client?http://localhost:8081/',
+    //   'webpack/hot/dev-server',
+    //   path.join(srcPath, 'index.js'),
+    // ],
     other: path.join(srcPath, 'other.js'),
   },
   module: {
@@ -23,7 +25,7 @@ module.exports = merge(webpackCommonConf, {
         use: ['babel-loader?cacheDirectory'], //开启缓存
         include: srcPath,
         //排除范围
-        exclude: /node_modules/,
+        exclude: /node_modules/, //第二，不要再转换node_modules
       },
       //直接引入图片url
       {
@@ -48,13 +50,18 @@ module.exports = merge(webpackCommonConf, {
       ENV: JSON.stringify('development'),
     }),
     new HotModuleReplacementPlugin(),
+    //第三，告诉webpack使用了哪些动态链接库
+    new DllReferencePlugin({
+      //描述 React动态链接库的文件内容
+      manifest: require(path.join(distPath, 'react.manifest.json')),
+    }),
   ],
   devServer: {
     port: 8081,
     static: distPath, //根目录
     open: true, //自动打开浏览器
     compress: true, //启动gzip压缩
-    host: true,
+    hot: true,
     //设置代理
     proxy: {
       //将本地 /api/xxx 代理到localhost:3000/api/xx
