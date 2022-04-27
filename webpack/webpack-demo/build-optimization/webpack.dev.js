@@ -8,6 +8,13 @@ module.exports = merge(webpackCommonConf, {
   mode: 'development',
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader?cacheDirectory'], //开启缓存
+        include: srcPath,
+        //排除范围
+        exclude: /node_modules/,
+      },
       //直接引入图片url
       {
         test: /\.(png|jpg|jpeg|gif)$/,

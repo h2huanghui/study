@@ -9,13 +9,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: ['babel-loader?cacheDirectory'],//开启缓存
-        include: srcPath,
-        //排除范围
-        exclude: /node_modules/,
-      },
+      //babel-loader
       //css处理 dev和prod区分
     ],
   },

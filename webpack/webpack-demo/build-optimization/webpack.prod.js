@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HappyPack = require('happypack');
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const webpackCommonConf = require('./webpack.common.js');
 const { merge } = require('webpack-merge');
 const { srcPath, distPath } = require('./paths');
@@ -19,6 +21,15 @@ module.exports = merge(webpackCommonConf, {
     //本身就已经打包好了，不需要再次打包
     noParse: [/react\.min\.js$/],
     rules: [
+      // js
+      {
+        test: /\.js$/,
+        // 把对 .js 文件的处理转交给id为babel的HappyPack实例
+        use: ['happypack/loader?id=babel'],
+        include: srcPath,
+        //排除范围
+        // exclude: /node_modules/,
+      },
       // 图片 - 考虑base64 编码的情况
       {
         test: /\.(png|jpg|jpeg|gif)$/,
@@ -51,7 +62,7 @@ module.exports = merge(webpackCommonConf, {
           'less-loader',
           'postcss-loader',
         ],
-      }
+      },
     ],
   },
   plugins: [
@@ -65,7 +76,33 @@ module.exports = merge(webpackCommonConf, {
       filename: 'css/main.[contenthash:8].css',
     }),
     //忽略moment下的/locale 目录
-    new webpack.IgnorePlugin(/\.\/locale/,/moment/)
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
+
+    // happypack开启多进程打包
+    new HappyPack({
+      // 用唯一的标识符
+      id: 'babel',
+      loaders: ['babel-loader?cacheDirectory'],
+    }),
+    // 使用ParallelUglifyPlugin 并行压缩输出的JS代码
+    new ParallelUglifyPlugin({
+      //传递给uglifyJS的参数
+      //还是使用(uglifyJS压缩，只不过帮助开启了多进程)
+      uglifyJS: {
+        output: {
+          beautify: false, //最紧凑的输出
+          comments: false, //删除所有注释
+        },
+        compress: {
+          drop_console: true, //删除所有的`console`语句
+          collapse_vars: true, //内嵌定义了但只用到一次的变量
+          reduce_vars: true, //提取出出现多次但是没有定义成变量去引用的静态值
+        },
+      },
+    }),
   ],
   optimization: {
     // 压缩css

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack_demo=self.webpackChunkwebpack_demo||[]).push([[238],{238:function(e,a,s){s.r(a),a.default={message:"this is dynamic data"}}}]);
