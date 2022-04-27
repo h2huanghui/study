@@ -4,17 +4,17 @@ import './style/style2.less';
 
 import { sum } from './math';
 
-import moment from 'moment'
-import 'moment/locale/zh-cn' // 手动引入中文语言包
-moment.locale('zh-cn') // 设置语言为中文
-console.log('local',moment.locale())
-console.log('data',moment().format('ll'))
+import moment from 'moment';
+import 'moment/locale/zh-cn'; // 手动引入中文语言包
+moment.locale('zh-cn'); // 设置语言为中文
+console.log('local', moment.locale());
+console.log('data', moment().format('ll'));
 
 //引入第三方模块
 import _ from 'lodash';
 console.log(_.each);
 
-const sumRes = sum(10, 20);
+const sumRes = sum(20, 1);
 console.log('sumRes', sumRes);
 
 console.log('window.ENV', ENV);
@@ -29,11 +29,18 @@ function insertImgElem(imgFile) {
 import imgFile1 from './img/1.jpg';
 insertImgElem(imgFile1);
 
-
 //引入动态数据 - 懒加载
-setTimeout(() => {  
+setTimeout(() => {
   //定义trunk
-  import('./dynamic-data.js').then(res=>{
-    console.log(res.default.message)
-  })
-},1500)
+  import('./dynamic-data.js').then((res) => {
+    console.log(res.default.message);
+  });
+}, 1500);
+
+//增加 开启热更新之后的代码逻辑
+if (module.hot) {
+  module.hot.accept(['./math.js'], () => {
+    const sumRes = sum(1, 4);
+    console.log('sumRes in hot', sumRes);
+  });
+}
