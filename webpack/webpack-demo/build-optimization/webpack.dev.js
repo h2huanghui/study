@@ -6,9 +6,14 @@ const { srcPath, distPath } = require('./paths');
 const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 //第一，引入 DllReferencePlugin
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 
 module.exports = merge(webpackCommonConf, {
   mode: 'development',
+  resolve: {
+    //针对npm中的第三方模块 优先采用jsnext:main 中指向的 ES6 模块化语法的文件
+    mainFields: ['jsnext:main', 'browser', 'main'],
+  },
   entry: {
     index: path.join(srcPath, 'index2.js'),
     // index: [
@@ -55,6 +60,8 @@ module.exports = merge(webpackCommonConf, {
       //描述 React动态链接库的文件内容
       manifest: require(path.join(distPath, 'react.manifest.json')),
     }),
+    //开启Scope Hosting
+    new ModuleConcatenationPlugin(),
   ],
   devServer: {
     port: 8081,

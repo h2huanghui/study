@@ -16,6 +16,7 @@ module.exports = merge(webpackCommonConf, {
     // filename: "bundle.[contenthash:8].js", //打包代码时，加上contenthash
     filename: '[name].[contenthash:8].js', //name 即多入口时 entry
     path: distPath,
+    // publicPath: 'http://cdn.abc.com', //修改所有静态文件 url前缀（另外使用cdn加速，需要把编译出来dist文件夹下的js和css文件上传到cdn）
   },
   module: {
     //本身就已经打包好了，不需要再次打包
@@ -118,7 +119,7 @@ module.exports = merge(webpackCommonConf, {
        */
       // 缓存分组
       cacheGroups: {
-        // 第三方模块
+        // 第三方模块,比如lodash
         vendor: {
           name: 'vendor', // chunk名称
           priority: 1, //权限更高，优先抽离，重要！！！
