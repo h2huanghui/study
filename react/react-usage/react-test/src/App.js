@@ -1,15 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 // import BaseUse from './components/baseUse';
-import AdvancedUseDemo from './components/advancedUse'
+// import AdvancedUseDemo from './components/advancedUse'
+// import ClickCounter from './components/hook/useState';
+// import LifeCycles from './components/hook/useEffect';
+// import UseRef from './components/hook/useRef';
+import UseContext from './components/hook/useContext';
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  const [flag, setFlag] = useState(true);
+  return (
+    <div>
       <div>
-        <AdvancedUseDemo />
+        <button
+          onClick={() => {
+            setFlag(false);
+          }}
+        >
+          flag = false
+        </button>
       </div>
-    );
-  }
+      {/* <AdvancedUseDemo /> */}
+      {/* <ClickCounter /> */}
+      {/* {flag && <LifeCycles />} */}
+      {/* <UseRef /> */}
+      <UseContext />
+    </div>
+  );
 }
 
 export default App;
