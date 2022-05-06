@@ -6,6 +6,8 @@ import React, { Component, useState } from 'react';
 // import UseRef from './components/hook/useRef';
 // import UseContext from './components/hook/useContext';
 import CustomHooksUsage from './components/hook/customHooksUsage';
+import Parent from './components/hook/useStateTrack';
+import UseEffectChangeState from './components/hook/useEffectChangeState';
 
 function App() {
   const [flag, setFlag] = useState(true);
@@ -26,6 +28,8 @@ function App() {
       {/* <UseRef /> */}
       {/* <UseContext /> */}
       {flag && <CustomHooksUsage />}
+      <Parent />
+      {flag && <UseEffectChangeState />}
     </div>
   );
 }
