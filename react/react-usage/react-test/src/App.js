@@ -4,7 +4,8 @@ import React, { Component, useState } from 'react';
 // import ClickCounter from './components/hook/useState';
 // import LifeCycles from './components/hook/useEffect';
 // import UseRef from './components/hook/useRef';
-import UseContext from './components/hook/useContext';
+// import UseContext from './components/hook/useContext';
+import CustomHooksUsage from './components/hook/customHooksUsage';
 
 function App() {
   const [flag, setFlag] = useState(true);
@@ -23,7 +24,8 @@ function App() {
       {/* <ClickCounter /> */}
       {/* {flag && <LifeCycles />} */}
       {/* <UseRef /> */}
-      <UseContext />
+      {/* <UseContext /> */}
+      <CustomHooksUsage />
     </div>
   );
 }
