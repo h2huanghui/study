@@ -25,7 +25,7 @@ function App() {
       {/* {flag && <LifeCycles />} */}
       {/* <UseRef /> */}
       {/* <UseContext /> */}
-      <CustomHooksUsage />
+      {flag && <CustomHooksUsage />}
     </div>
   );
 }

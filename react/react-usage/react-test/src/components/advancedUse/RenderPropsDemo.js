@@ -34,11 +34,14 @@ const App = (props) => (
   <div style={{ height: '500px' }}>
     <p>{props.a}</p>
     <Mouse
-      render={({ x, y }) => (
-        <h1>
-          The mouse position is ({x},{y})
-        </h1>
-      )}
+      render={
+        //render是一个函数组件
+        ({ x, y }) => (
+          <h1>
+            The mouse position is ({x},{y})
+          </h1>
+        )
+      }
     />
   </div>
 );
