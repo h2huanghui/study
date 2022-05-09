@@ -10,6 +10,7 @@ import React, { Component, useState } from 'react';
 // import UseEffectChangeState from './components/hook/useEffectChangeState';
 // import LifeCycleContainer from './components/lifeCycle/React15/LifeCycleContainer';
 import LifeCycleContainer from './components/lifeCycle/React16/LifeCycleContainer';
+import Parent from './components/EventEmitter/Parent';
 
 function App() {
   const [flag, setFlag] = useState(true);
@@ -32,7 +33,8 @@ function App() {
       {/* {flag && <CustomHooksUsage />} */}
       {/* <Parent /> */}
       {/* {flag && <UseEffectChangeState />} */}
-      <LifeCycleContainer />
+      {/* <LifeCycleContainer /> */}
+      <Parent />
     </div>
   );
 }
