@@ -8,7 +8,8 @@ import React, { Component, useState } from 'react';
 // import CustomHooksUsage from './components/hook/customHooksUsage';
 // import Parent from './components/hook/useStateTrack';
 // import UseEffectChangeState from './components/hook/useEffectChangeState';
-import LifeCycleContainer from './components/lifeCycle/React15/LifeCycleContainer';
+// import LifeCycleContainer from './components/lifeCycle/React15/LifeCycleContainer';
+import LifeCycleContainer from './components/lifeCycle/React16/LifeCycleContainer';
 
 function App() {
   const [flag, setFlag] = useState(true);
