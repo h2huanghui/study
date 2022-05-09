@@ -5,9 +5,10 @@ import React, { Component, useState } from 'react';
 // import LifeCycles from './components/hook/useEffect';
 // import UseRef from './components/hook/useRef';
 // import UseContext from './components/hook/useContext';
-import CustomHooksUsage from './components/hook/customHooksUsage';
-import Parent from './components/hook/useStateTrack';
-import UseEffectChangeState from './components/hook/useEffectChangeState';
+// import CustomHooksUsage from './components/hook/customHooksUsage';
+// import Parent from './components/hook/useStateTrack';
+// import UseEffectChangeState from './components/hook/useEffectChangeState';
+import LifeCycleContainer from './components/lifeCycle/React15/LifeCycleContainer';
 
 function App() {
   const [flag, setFlag] = useState(true);
@@ -27,9 +28,10 @@ function App() {
       {/* {flag && <LifeCycles />} */}
       {/* <UseRef /> */}
       {/* <UseContext /> */}
-      {flag && <CustomHooksUsage />}
-      <Parent />
-      {flag && <UseEffectChangeState />}
+      {/* {flag && <CustomHooksUsage />} */}
+      {/* <Parent /> */}
+      {/* {flag && <UseEffectChangeState />} */}
+      <LifeCycleContainer />
     </div>
   );
 }
