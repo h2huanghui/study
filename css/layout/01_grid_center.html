@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>空间居中布局</title>
+    <style>
+      .container {
+        display: grid;
+        place-items: center;
+        /* 垂直位置 */
+        /* align-items: center; */
+        /* 水平位置 */
+        /* justify-items: center; */
+      }
+      .img-item {
+        width: 100%;
+      }
+      /* 16:9 等比缩放 */
+      .img-wrap {
+        padding-bottom: 56.25%;
+        position: relative;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>React 15 生命周期</p>
+      <div class="img-item">
+        <div class="img-wrap">
+          <img src="../img/15Class.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

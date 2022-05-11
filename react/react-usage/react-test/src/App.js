@@ -9,14 +9,14 @@ import React, { Component, useState } from 'react';
 // import Parent from './components/hook/useStateTrack';
 // import UseEffectChangeState from './components/hook/useEffectChangeState';
 // import LifeCycleContainer from './components/lifeCycle/React15/LifeCycleContainer';
-import LifeCycleContainer from './components/lifeCycle/React16/LifeCycleContainer';
-import Parent from './components/EventEmitter/Parent';
+// import LifeCycleContainer from './components/lifeCycle/React16/LifeCycleContainer';
+// import Parent from './components/EventEmitter/Parent';
 
 function App() {
   const [flag, setFlag] = useState(true);
   return (
     <div>
-      <div>
+      {/* <div>
         <button
           onClick={() => {
             setFlag(false);
@@ -24,7 +24,7 @@ function App() {
         >
           flag = false
         </button>
-      </div>
+      </div> */}
       {/* <AdvancedUseDemo /> */}
       {/* <ClickCounter /> */}
       {/* {flag && <LifeCycles />} */}
@@ -34,7 +34,10 @@ function App() {
       {/* <Parent /> */}
       {/* {flag && <UseEffectChangeState />} */}
       {/* <LifeCycleContainer /> */}
-      <Parent />
+      {/* <Parent /> */}
+      <h1>我是标题</h1>
+      <p>我是第一段话</p>
+      <p>我是第二段话</p>
     </div>
   );
 }
